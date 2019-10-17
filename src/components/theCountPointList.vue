@@ -1,9 +1,9 @@
 <template>
   <div>
     theCountPointList
-    <div v-if="isRequestingData" class="p-2 m-2">Making request!</div>
-    <div v-if="TrafficFlowData">
-      <div v-for="(item, index) in TrafficFlowData" :key="index">
+    <div v-if="isRequestingCountPointsData" class="p-2 m-2">Making request!</div>
+    <div v-if="CountPointsData">
+      <div v-for="(item, index) in CountPointsData" :key="index">
         <router-link :to="{ name:'countPointDetail', params: { id: item.count_point_id }}">
           {{ item.count_point_id }} - {{ item.road_name }} {{ item.road_type }}
         </router-link>
@@ -15,16 +15,16 @@
 import { mapState } from 'vuex';
 export default {
   mounted() {
-    if(!this.TrafficFlowData) {
-          this.$store.dispatch('traffic/requestTrafficFlowData')
+    if(!this.CountPointsData) {
+          this.$store.dispatch('countPoints/requestCountPointsData')
       .catch(error => {
-        this.$store.commit('traffic/setIsRequestingData', false);
+        this.$store.commit('countPoints/setIsRequestingCountPointsData', false);
         // log error
       })
     }
   },
   computed: {
-    ...mapState('traffic', ['isRequestingData', 'TrafficFlowData'])
+    ...mapState('countPoints', ['isRequestingCountPointsData', 'CountPointsData'])
   }
 };
 </script>

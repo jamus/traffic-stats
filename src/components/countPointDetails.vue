@@ -1,10 +1,14 @@
 <template>
   <div>countPointDetails {{ countPointID }}
-    <div v-if="CountPointData">
-      <div v-for="(item, index) in CountPointData" :key=index>
-        {{ item.count_point_id }} - {{ item.year }} - {{ item.direction_of_travel }}
-      </div>
-    </div>
+    <ul v-if="CountPointData">
+        <li>{{ CountPointData.road_name }}</li>
+        <li>{{ CountPointData.region_id }}</li>
+        <li>{{ CountPointData.region_name }}</li>
+        <li>{{ CountPointData.road_category }}</li>
+        <li>{{ CountPointData.road_category_description }}</li>
+        <li>{{ CountPointData.road_name }}</li>
+        <li>{{ CountPointData.road_type }}</li>
+    </ul>
     <div v-else>
       Loading...
     </div>

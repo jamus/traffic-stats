@@ -18,7 +18,7 @@ const CountPointData = {
   actions: {
     requestCountPointData({commit}, payload) {
       commit('setIsRequestingCountPointData', true);
-      return postmanRequest.get(endpoints.COUNT_POINT.replace(':count_point_id', payload))
+      return postmanRequest.get(endpoints.COUNT_POINT_DETAILS.replace(':count_point_id', payload))
         .then((response) => {
           commit('setCountPointData', response.data.data);
           commit('setIsRequestingCountPointData', false);

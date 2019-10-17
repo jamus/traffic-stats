@@ -1,30 +1,30 @@
 import { postmanRequest } from '@/http/request.js';
 import { endpoints } from '@/http/endpoints.js';
 
-const TrafficFlowData = {
+const CountPointsData = {
   namespaced: true,
   state: {
-    isRequestingData: false,
-    TrafficFlowData: null
+    isRequestingCountPointsData: false,
+    CountPointsData: null
   },
   mutations: {
-    setIsRequestingData(state, payload) {
+    setIsRequestingCountPointsData(state, payload) {
       state.isRequestingData = payload;
     },
-    setTrafficFlowData(state, payload) {
-      state.TrafficFlowData = payload;
+    setCountPointsData(state, payload) {
+      state.CountPointsData = payload;
     }
   },
   actions: {
-    requestTrafficFlowData({commit}) {
-      commit('setIsRequestingData', true);
+    requestCountPointsData({commit}) {
+      commit('setIsRequestingCountPointsData', true);
       return postmanRequest.get(endpoints.COUNT_POINTS)
         .then((response) => {
-          commit('setTrafficFlowData', response.data.data);
-          commit('setIsRequestingData', false);
+          commit('setCountPointsData', response.data.data);
+          commit('setIsRequestingCountPointsData', false);
         });
     }
   }
 };
 
-export default TrafficFlowData;
+export default CountPointsData;
