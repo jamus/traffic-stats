@@ -2,9 +2,8 @@
   <div>
     countPointCountData {{ countPointID }}
     <div v-if="CountPointCountsData && yearsCounted">
-      {{ yearsCounted }}
       <!-- {{ this.getCountsByDirection('E') }} -->
-      <!-- {{ chartData }} -->
+      {{ getAllMotorVehicleCountByDirection }}
       <countPointCountChart :chartData="chartData" :options="options" />
     </div>
     <div v-else>
@@ -15,19 +14,6 @@
 <script>
 import { mapState, mapGetters } from 'vuex';
 import countPointCountChart from '@/components/countPointCountChart';
-const cheese = {
-            label: 'cheese',
-            data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 3, 12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderWidth: 0
-        };
 const bacon = {
             label: 'bacon',
             data: [3, 3, 5, 6, 8, 9, 5, 2, 3, 12, 19, 3, 5, 2, 3, 3, 12, 19, 21],
@@ -73,12 +59,13 @@ export default {
       'CountPointCountsData'
     ]),
     ...mapGetters('countPointCounts', [
-      'getCountsByDirection'
+      'getCountsByDirection',
+      'getAllMotorVehicleCountByDirection'
     ]),
     chartData() {
       return {
         labels: this.yearsCounted,
-        datasets: [cheese, bacon]
+        datasets: [this.allMotorVehiclesDataSet, bacon]
       }
     },
     yearsCounted() {
@@ -95,6 +82,21 @@ export default {
     },
     countedWest() {
       return this.getCountsByDirection('W');
+    },
+    allMotorVehiclesDataSet() {
+      return {
+        label: 'cheese',
+        data: this.getAllMotorVehicleCountByDirection('E'),
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderWidth: 0
+      };
     }
   }
 };

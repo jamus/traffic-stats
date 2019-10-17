@@ -33,7 +33,14 @@ const CountPointCountsData = {
   },
   getters: {
     getCountsByDirection: (state) => (direction_of_travel) => {
-      return state.CountPointCountsData.filter(item => item.direction_of_travel === direction_of_travel)
+      return state.CountPointCountsData.filter(item => item.direction_of_travel === direction_of_travel);
+    },
+    getAllMotorVehicleCountByDirection: (state) => (direction_of_travel) => {
+      const resultsFromDirection = state.CountPointCountsData.filter(item => item.direction_of_travel === direction_of_travel);
+      console.log('resultsFromDirection', resultsFromDirection);
+      const result = resultsFromDirection.map(item => item.all_motor_vehicles);
+      console.log('result', result);
+      return result;
     }
   }
 };
