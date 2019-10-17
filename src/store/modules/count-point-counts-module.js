@@ -1,30 +1,35 @@
 import { postmanRequest } from '@/http/request.js';
 import { endpoints } from '@/http/endpoints.js';
 
-const CountPointData = {
+const CountPointCountsData = {
   namespaced: true,
   state: {
-    isRequestingCountPointData: false,
-    CountPointData: null
+    isRequestingCountPointCountsData: false,
+    CountPointCountsData: null
   },
   mutations: {
-    setIsRequestingCountPointData(state, payload) {
-      state.isRequestingCountPointData = payload;
+    setIsRequestingCountPointCountsData(state, payload) {
+      state.isRequestingCountPointCountsData = payload;
     },
-    setCountPointData(state, payload) {
-      state.CountPointData = payload;
+    setCountPointCountsData(state, payload) {
+      state.CountPointCountsData = payload;
     }
   },
   actions: {
-    requestCountPointData({commit}, payload) {
-      commit('setIsRequestingCountPointData', true);
-      return postmanRequest.get(endpoints.COUNT_POINT_DETAILS.replace(':count_point_id', payload))
+    requestCountPointCountsData({commit}, payload) {
+      commit('setIsRequestingCountPointCountsData', true);
+      return postmanRequest.get(endpoints.COUNT_POINT_COUNT_DATA.replace(':count_point_id', payload))
         .then((response) => {
-          commit('setCountPointData', response.data.data);
-          commit('setIsRequestingCountPointData', false);
+          commit('setCountPointCountsData', response.data.data);
+          commit('setIsRequestingCountPointCountsData', false);
         });
+    }
+  },
+  getters: {
+    getCountsByDirection: (state) => (direction_of_travel) => {
+      return state.CountPointCountsData.filter(item => item.direction_of_travel === direction_of_travel)
     }
   }
 };
 
-export default CountPointData;
+export default CountPointCountsData;
