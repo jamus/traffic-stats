@@ -1,17 +1,27 @@
-import welcomeHome from '@/views/theWelcomeView';
+import thecountPointListView from '@/views/thecountPointListView';
+import theCountPointDetailView from '@/views/theCountPointDetailView';
 import viewNotFound from '@/views/theViewNotFoundView';
 
 export default [
   {
     path: '/',
     name: 'index',
-    redirect: { name: 'welcome' }
+    redirect: { name: 'list' }
   },
   {
-    path: '/welcome',
-    name: 'welcome',
-    component: welcomeHome
+    path: '/list',
+    name: 'list',
+    component: thecountPointListView
   },
-  { path: '/404', component: viewNotFound },
-  { path: '*', redirect: '/404' }
+  { path: '/:id(\\d+)',
+    name: 'propertyDetail',
+    props(route) {
+      const props = { ...route.params };
+      props.id = Number(props.id);
+      return props;
+    },
+    component: theCountPointDetailView
+  },
+  { path: '/page-not-found', component: viewNotFound },
+  { path: '*', redirect: '/page-not-found' }
 ];
