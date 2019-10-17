@@ -32,13 +32,9 @@ const CountPointCountsData = {
     }
   },
   getters: {
-    getAllMotorVehicleCountByDirection: (state) => (direction_of_travel) => {
-      const resultsFromDirection = state.CountPointCountsData.filter(item => item.direction_of_travel === direction_of_travel);
-      return resultsFromDirection.map(item => item.all_motor_vehicles);
-    },
-    getTwoWheeledMotorVehicleCountByDirection: (state) => (direction_of_travel) => {
-      const resultsFromDirection = state.CountPointCountsData.filter(item => item.direction_of_travel === direction_of_travel);
-      return resultsFromDirection.map(item => item.two_wheeled_motor_vehicles);
+    getVehicleCountByDirection: (state) => (vehicle, direction) => {
+      const resultsFromDirection = state.CountPointCountsData.filter(item => item.direction_of_travel === direction);
+      return resultsFromDirection.map(item => item[vehicle]);
     }
   }
 };

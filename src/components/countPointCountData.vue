@@ -45,13 +45,12 @@ export default {
       'CountPointCountsData'
     ]),
     ...mapGetters('countPointCounts', [
-      'getAllMotorVehicleCountByDirection',
-      'getTwoWheeledMotorVehicleCountByDirection'
+      'getVehicleCountByDirection'
     ]),
     chartData() {
       return {
         labels: this.yearsCounted,
-        datasets: [this.allMotorVehiclesDataSet, this.twoWheeledMotorVehiclesDataSet]
+        datasets: [this.carAndTaxiMotorVehiclesDataSet, this.allMotorVehiclesDataSet, this.twoWheeledMotorVehiclesDataSet]
       }
     },
     yearsCounted() {
@@ -60,7 +59,7 @@ export default {
     allMotorVehiclesDataSet() {
       return {
         label: 'All motor vehicles',
-        data: this.getAllMotorVehicleCountByDirection('E'),
+        data: this.getVehicleCountByDirection('all_motor_vehicles', 'E'),
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -75,7 +74,22 @@ export default {
     twoWheeledMotorVehiclesDataSet() {
       return {
         label: 'Two wheeled motor vehicles',
-        data: this.getTwoWheeledMotorVehicleCountByDirection('E'),
+        data: this.getVehicleCountByDirection('two_wheeled_motor_vehicles', 'E'),
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderWidth: 0
+      };
+    },
+    carAndTaxiMotorVehiclesDataSet() {
+      return {
+        label: 'Cars and Taxis',
+        data: this.getVehicleCountByDirection('cars_and_taxis', 'E'),
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
