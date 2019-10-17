@@ -50,7 +50,11 @@ export default {
     chartData() {
       return {
         labels: this.yearsCounted,
-        datasets: [this.carAndTaxiMotorVehiclesDataSet, this.allMotorVehiclesDataSet, this.twoWheeledMotorVehiclesDataSet]
+        datasets: [
+          this.carAndTaxiMotorVehiclesDataSet,
+          this.allMotorVehiclesDataSet,
+          this.twoWheeledMotorVehiclesDataSet
+        ]
       }
     },
     yearsCounted() {
