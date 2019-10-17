@@ -1,14 +1,13 @@
 <template>
   <div>
-    Hello 👋
-    <theGetGreetingsButton />
+    <theCountPointList />
   </div>
 </template>
 <script>
-import theGetGreetingsButton from '@/components/theGetGreetingsButton.vue';
+import theCountPointList from '@/components/theCountPointList.vue';
 export default {
   components: {
-    theGetGreetingsButton
+    theCountPointList
   }
 };
 </script>

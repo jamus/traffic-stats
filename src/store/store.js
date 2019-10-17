@@ -1,8 +1,10 @@
-import greetings from '@/store/modules/greetings-module';
+import countPoints from '@/store/modules/count-points-module';
+import countPoint from '@/store/modules/count-point-module';
 
 export const STORE = {
   state: {},
   modules: {
-    greetings
+    countPoints,
+    countPoint
   }
 };

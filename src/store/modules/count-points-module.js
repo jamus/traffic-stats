@@ -1,30 +1,30 @@
 import { postmanRequest } from '@/http/request.js';
 import { endpoints } from '@/http/endpoints.js';
 
-const greetingsData = {
+const TrafficFlowData = {
   namespaced: true,
   state: {
     isRequestingData: false,
-    helloData: null
+    TrafficFlowData: null
   },
   mutations: {
     setIsRequestingData(state, payload) {
       state.isRequestingData = payload;
     },
-    setGreetingsData(state, payload) {
-      state.helloData = payload;
+    setTrafficFlowData(state, payload) {
+      state.TrafficFlowData = payload;
     }
   },
   actions: {
-    requestHelloData({commit}) {
+    requestTrafficFlowData({commit}) {
       commit('setIsRequestingData', true);
-      return postmanRequest.get(endpoints.HELLO_DATA)
+      return postmanRequest.get(endpoints.COUNT_POINTS)
         .then((response) => {
-          commit('setGreetingsData', response.data.data);
+          commit('setTrafficFlowData', response.data.data);
           commit('setIsRequestingData', false);
         });
     }
   }
 };
 
-export default greetingsData;
+export default TrafficFlowData;

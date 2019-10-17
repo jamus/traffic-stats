@@ -14,7 +14,7 @@ export default [
     component: thecountPointListView
   },
   { path: '/:id(\\d+)',
-    name: 'propertyDetail',
+    name: 'countPointDetail',
     props(route) {
       const props = { ...route.params };
       props.id = Number(props.id);
