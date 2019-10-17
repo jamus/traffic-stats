@@ -2,7 +2,6 @@
   <div>
     countPointCountData {{ countPointID }}
     <div v-if="CountPointCountsData && yearsCounted">
-      <!-- {{ this.getCountsByDirection('E') }} -->
       <countPointCountChart :chartData="chartData" :options="options" />
     </div>
     <div v-else>
@@ -60,6 +59,7 @@ export default {
     yearsCounted() {
       return [...new Set(this.CountPointCountsData.map(item => item.year))]; // ES6 has a native object Set to store unique value
     },
+    // TOTO build datasets using dynamic road directions
     allMotorVehiclesDataSet() {
       return {
         label: 'All motor vehicles',
