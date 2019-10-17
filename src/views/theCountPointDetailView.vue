@@ -20,7 +20,6 @@ export default {
     }
   },
   beforeRouteLeave(to, from, next) {
-    console.log('leaving');
     this.clearCountPointCountsData();
     this.clearCountPointDetailsData();
     next();
