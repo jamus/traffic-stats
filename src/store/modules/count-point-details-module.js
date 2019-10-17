@@ -13,6 +13,9 @@ const CountPointData = {
     },
     setCountPointData(state, payload) {
       state.CountPointData = payload;
+    },
+    emptyCountPointDetailsData(state) {
+      state.CountPointData = null;
     }
   },
   actions: {
@@ -23,6 +26,9 @@ const CountPointData = {
           commit('setCountPointData', response.data.data);
           commit('setIsRequestingCountPointData', false);
         });
+    },
+    clearCountPointDetailsData({commit}) {
+      commit('emptyCountPointDetailsData');
     }
   }
 };
