@@ -22,7 +22,7 @@ export default {
       this.$store.dispatch('greetings/requestHelloData')
         .catch(error => {
           this.$store.commit('greetings/setIsRequestingData', false);
-          this.$store.dispatch('addError', error);
+          // log error
         })
       ;
     }
