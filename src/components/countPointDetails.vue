@@ -8,6 +8,7 @@
         <li>{{ CountPointData.road_category_description }}</li>
         <li>{{ CountPointData.road_name }}</li>
         <li>{{ CountPointData.road_type }}</li>
+        <countPointCountData :countPointID="countPointID"/>
     </ul>
     <div v-else>
       Loading...
@@ -15,9 +16,13 @@
   </div>
 </template>
 <script>
+import countPointCountData from '@/components/countPointCountData';
 import { mapState } from 'vuex';
 export default {
   name: 'countPointDetails',
+  components: {
+    countPointCountData
+  },
   props: {
     countPointID: {
       required: true,
@@ -25,15 +30,15 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('countPoint/requestCountPointData', this.countPointID)
+    this.$store.dispatch('countPointDetail/requestCountPointData', this.countPointID)
       .catch(error => {
-        this.$store.commit('countPoint/setIsRequestingCountPointData', false);
-        this.$store.dispatch('countPoint/clearPropertyDetailsData');
+        this.$store.commit('countPointDetail/setIsRequestingCountPointData', false);
+        this.$store.dispatch('countPointDetail/clearPropertyDetailsData');
         console.error('error requestCountPointData');
       });
   },
   computed: {
-    ...mapState('countPoint', [
+    ...mapState('countPointDetail', [
       'isRequestingCountPointData',
       'CountPointData'
     ])
