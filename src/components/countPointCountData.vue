@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="container">
     countPointCountData {{ countPointID }}
-    <div v-if="CountPointCountsData && yearsCounted">
+    <div v-if="CountPointCountsData && yearsCounted"
+          class="flex">
       {{ roadDirectionsOfTravel }}
       <div v-for="direction in roadDirectionsOfTravel">
         {{ direction }}
