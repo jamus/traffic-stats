@@ -1,5 +1,6 @@
 import { postmanRequest } from '@/http/request.js';
 import { endpoints } from '@/http/endpoints.js';
+import { getDataSetItemColour } from '@/utilities/getDataSetItemColour.js';
 
 const CountPointCountsData = {
   namespaced: true,
@@ -35,6 +36,14 @@ const CountPointCountsData = {
     getVehicleCountByDirection: (state) => (vehicle, direction) => {
       const resultsFromDirection = state.CountPointCountsData.filter(item => item.direction_of_travel === direction);
       return resultsFromDirection.map(item => item[vehicle]);
+    },
+    getDataset: () => (data, label) => {
+      return {
+        label: label,
+        data: data,
+        backgroundColor: getDataSetItemColour(label),
+        borderWidth: 0
+      }
     }
   }
 };

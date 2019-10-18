@@ -2,7 +2,11 @@
   <div>
     countPointCountData {{ countPointID }}
     <div v-if="CountPointCountsData && yearsCounted">
-      <countPointCountChart :chartData="chartData" :options="options" />
+      {{ roadDirectionsOfTravel }}
+      <div v-for="direction in roadDirectionsOfTravel">
+        {{ direction }}
+        <countPointCountChart :chartData="chartData(direction)" :options="options" />
+        </div>
     </div>
     <div v-else>
       Loading CountPointCountsData 
@@ -38,57 +42,39 @@ export default {
         console.error('error requestCountPointCountsData', error);
       });
   },
+  methods: {
+    chartData(direction) {
+      return {
+        labels: this.yearsCounted,
+        datasets: [
+          this.getDataset(
+            this.getVehicleCountByDirection('all_motor_vehicles', direction),
+            'All motor vehicles'),
+          this.getDataset(
+            this.getVehicleCountByDirection('cars_and_taxis', direction),
+            'Cars and Taxis'),
+          this.getDataset(
+            this.getVehicleCountByDirection('two_wheeled_motor_vehicles', direction),
+            'Two wheeled motor vehicles')
+        ]
+      }
+    }
+  },
   computed: {
     ...mapState('countPointCounts', [
       'isRequestingCountPointCountsData',
       'CountPointCountsData'
     ]),
     ...mapGetters('countPointCounts', [
-      'getVehicleCountByDirection'
+      'getVehicleCountByDirection',
+      'getDataset'
     ]),
-    chartData() {
-      return {
-        labels: this.yearsCounted,
-        datasets: [
-          this.carAndTaxiMotorVehiclesDataSet,
-          this.allMotorVehiclesDataSet,
-          this.twoWheeledMotorVehiclesDataSet
-        ]
-      }
-    },
     yearsCounted() {
-      return [...new Set(this.CountPointCountsData.map(item => item.year))]; // ES6 has a native object Set to store unique value
+      return [...new Set(this.CountPointCountsData.map(item => item.year))];
     },
-    // TOTO build datasets using dynamic road directions
-    allMotorVehiclesDataSet() {
-      return {
-        label: 'All motor vehicles',
-        data: this.getVehicleCountByDirection('all_motor_vehicles', 'E'),
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.2)'
-        ],
-        borderWidth: 0
-      };
-    },
-    twoWheeledMotorVehiclesDataSet() {
-      return {
-        label: 'Two wheeled motor vehicles',
-        data: this.getVehicleCountByDirection('two_wheeled_motor_vehicles', 'E'),
-        backgroundColor: [
-            'rgba(54, 162, 235, 0.2)'
-        ],
-        borderWidth: 0
-      };
-    },
-    carAndTaxiMotorVehiclesDataSet() {
-      return {
-        label: 'Cars and Taxis',
-        data: this.getVehicleCountByDirection('cars_and_taxis', 'E'),
-        backgroundColor: [
-            'rgba(255, 159, 64, 0.2)'
-        ],
-        borderWidth: 0
-      };
+    roadDirectionsOfTravel() {
+      return [...new Set(this.CountPointCountsData.map(item => item.direction_of_travel))];
+      
     }
   }
 };
