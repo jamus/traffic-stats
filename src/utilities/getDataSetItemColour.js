@@ -12,8 +12,20 @@ export function getDataSetItemColour(itemLabel) {
     case 'Two wheeled motor vehicles':
       colour = ['rgba(250, 128, 114, 0.2)'];
       break;
+    case 'Bicycles':
+      colour = ['rgba(250, 128, 114, 0.2)'];
+      break;
+    case 'Buses & coaches':
+      colour = ['rgba(250, 134, 100, 0.2)'];
+      break;
+    case 'LGVs':
+      colour = ['rgba(250, 140, 160, 0.2)'];
+      break;
+    case 'HGVs':
+      colour = ['rgba(250, 128, 190, 0.2)'];
+      break;
     default:
-      colour = ['rgba(255, 160, 122, 0.2)'];
+      colour = ['rgba(255, 250, 200, 0.2)'];
   }
   
   return colour;

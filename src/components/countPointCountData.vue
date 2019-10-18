@@ -56,7 +56,19 @@ export default {
             'Cars and Taxis'),
           this.getDataset(
             this.getVehicleCountByDirection('two_wheeled_motor_vehicles', direction),
-            'Two wheeled motor vehicles')
+            'Two wheeled motor vehicles'),
+          this.getDataset(
+            this.getVehicleCountByDirection('pedal_cycles', direction),
+            'Bicycles'),
+          this.getDataset(
+            this.getVehicleCountByDirection('buses_and_coaches', direction),
+            'Buses & coaches'),
+          this.getDataset(
+            this.getVehicleCountByDirection('lgvs', direction),
+            'LGVs'),
+          this.getDataset(
+            this.getVehicleCountByDirection('all_hgvs', direction),
+            'HGVs')
         ]
       }
     }
