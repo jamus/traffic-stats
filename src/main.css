@@ -9,7 +9,7 @@
  *
  * @import "tailwindcss/preflight";
  */
-@tailwind preflight;
+@tailwind base;
 
 /**
  * This injects any component classes registered by plugins.
@@ -35,10 +35,6 @@
  * @import "components/buttons";
  * @import "components/forms";
  */
-
-.notice-warning {
-  @apply bg-warning-yellow-light;
-}
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
