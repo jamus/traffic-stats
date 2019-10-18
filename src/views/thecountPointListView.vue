@@ -1,6 +1,7 @@
 <template>
   <div>
     <theCountPointList />
+    <router-view></router-view>
   </div>
 </template>
 <script>

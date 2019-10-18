@@ -1,6 +1,5 @@
 <template>
   <div>
-    theCountPointList
     <div v-if="isRequestingCountPointsData" class="p-2 m-2">Making request!</div>
     <div v-if="CountPointsData">
       <div v-for="(item, index) in CountPointsData" :key="index">

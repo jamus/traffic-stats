@@ -13,14 +13,24 @@ export default [
     name: 'list',
     component: thecountPointListView
   },
-  { path: '/:id(\\d+)',
-    name: 'countPointDetail',
-    props(route) {
-      const props = { ...route.params };
-      props.id = Number(props.id);
-      return props;
-    },
-    component: theCountPointDetailView
+  { path: '/list/:id(\\d+)',
+    component: thecountPointListView,
+    children: [
+      // UserHome will be rendered inside User's <router-view>
+      // when /user/:id is matched
+      { path: '', component: viewNotFound },
+      
+      // UserProfile will be rendered inside User's <router-view>
+      // when /user/:id/profile is matched
+      { path: 'detail',
+        name: 'countPointDetail',
+        component: theCountPointDetailView, 
+        props(route) {
+        const props = { ...route.params };
+        props.id = Number(props.id);
+        return props;
+      } },
+    ]
   },
   { path: '/page-not-found', component: viewNotFound },
   { path: '*', redirect: '/page-not-found' }
