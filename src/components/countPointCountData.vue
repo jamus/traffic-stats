@@ -65,12 +65,7 @@ export default {
         label: 'All motor vehicles',
         data: this.getVehicleCountByDirection('all_motor_vehicles', 'E'),
         backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+            'rgba(255, 99, 132, 0.2)'
         ],
         borderWidth: 0
       };
@@ -80,12 +75,7 @@ export default {
         label: 'Two wheeled motor vehicles',
         data: this.getVehicleCountByDirection('two_wheeled_motor_vehicles', 'E'),
         backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+            'rgba(54, 162, 235, 0.2)'
         ],
         borderWidth: 0
       };
@@ -95,11 +85,6 @@ export default {
         label: 'Cars and Taxis',
         data: this.getVehicleCountByDirection('cars_and_taxis', 'E'),
         backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
             'rgba(255, 159, 64, 0.2)'
         ],
         borderWidth: 0
