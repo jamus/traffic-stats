@@ -5,7 +5,8 @@ const CountPointsData = {
   namespaced: true,
   state: {
     isRequestingCountPointsData: false,
-    CountPointsData: null
+    CountPointsData: null,
+    CountPointsDataFiltered: []
   },
   mutations: {
     setIsRequestingCountPointsData(state, payload) {
@@ -13,6 +14,9 @@ const CountPointsData = {
     },
     setCountPointsData(state, payload) {
       state.CountPointsData = payload;
+    },
+    setCountPointsDataFiltered(state, payload) {
+      state.CountPointsDataFiltered = payload;
     }
   },
   actions: {
@@ -21,8 +25,20 @@ const CountPointsData = {
       return postmanRequest.get(endpoints.COUNT_POINTS)
         .then((response) => {
           commit('setCountPointsData', response.data.data);
+          commit('setCountPointsDataFiltered', response.data.data);
           commit('setIsRequestingCountPointsData', false);
         });
+    },
+    updateCountPointsDataFiltered({state, commit}, {param, arg}) {
+      let filteredList = state.CountPointsData; 
+      if (arg) {
+        filteredList = state.CountPointsData.filter(item => item[param] === arg);
+      }
+      commit('setCountPointsDataFiltered', filteredList);
+    },
+    updateCountPointsDataFilteredByLength({state, commit}, val) {
+      let filteredList = state.CountPointsData.filter(item => item.link_length_km <= val);
+      commit('setCountPointsDataFiltered', filteredList);
     }
   }
 };

@@ -1,12 +1,15 @@
 <template>
   <div>
     <div v-if="isRequestingCountPointsData" class="p-2 m-2">Making request!</div>
-    <div v-if="CountPointsData">
-      <div v-for="(item, index) in CountPointsData" :key="index">
+    <div v-if="doHaveRoadList">
+      <div v-for="(item, index) in CountPointsDataFiltered" :key="index">
         <router-link :to="{ name:'countPointDetail', params: { id: item.count_point_id }}">
           {{ item.count_point_id }} - {{ item.road_name }} {{ item.road_type }}
         </router-link>
       </div>
+    </div>
+    <div v-else>
+      None match you selection
     </div>
   </div>
 </template>
@@ -23,7 +26,10 @@ export default {
     }
   },
   computed: {
-    ...mapState('countPoints', ['isRequestingCountPointsData', 'CountPointsData'])
+    ...mapState('countPoints', ['isRequestingCountPointsData', 'CountPointsDataFiltered']),
+    doHaveRoadList() {
+      return this.CountPointsDataFiltered.length;
+    }
   }
 };
 </script>
