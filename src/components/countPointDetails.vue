@@ -1,27 +1,37 @@
 <template>
-  <div>countPointDetails {{ countPointID }}
-    <ul v-if="CountPointData">
-        <li>{{ CountPointData.road_name }}</li>
-        <li>{{ CountPointData.region_id }}</li>
-        <li>{{ CountPointData.region_name }}</li>
-        <li>{{ CountPointData.road_category }}</li>
-        <li>{{ CountPointData.road_category_description }}</li>
-        <li>{{ CountPointData.road_name }}</li>
-        <li>{{ CountPointData.road_type }}</li>
+  <div>Count Point {{ countPointID }}
+    <div v-if="CountPointData"
+        class="text-xs">
+        <div class="flex">
+          <ul class="w-1/2">
+            <li>{{ CountPointData.road_name }}</li>
+            <li>{{ CountPointData.region_id }}</li>
+            <li>{{ CountPointData.region_name }}</li>
+          </ul>
+          <ul>
+            <li>{{ CountPointData.road_category }}</li>
+            <li>{{ CountPointData.road_category_description }}</li>
+            <li>{{ CountPointData.road_name }}</li>
+            <li>{{ CountPointData.road_type }}</li>
+          </ul>
+        </div>
         <countPointCountData :countPointID="countPointID"/>
-    </ul>
+        <countPointLocation :coordinates="[CountPointData.longitude, CountPointData.latitude]"/>
+    </div>
     <div v-else>
       Loading...
     </div>
   </div>
 </template>
 <script>
+import countPointLocation from '@/components/countPointLocation';
 import countPointCountData from '@/components/countPointCountData';
 import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'countPointDetails',
   components: {
+    countPointLocation,
     countPointCountData
   },
   props: {
