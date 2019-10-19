@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-      <div class="p-6 bg-gray-100 text-center">Filter Goes here</div>
+      <theListFilter class="p-6 bg-gray-100 text-center" />
       <div class="text-sm container mx-auto">
         <router-view></router-view>
       </div>
@@ -8,11 +8,11 @@
 </template>
 
 <script>
-
+import theListFilter from '@/components/theListFilter';
 export default {
   name: 'app',
-  data() {
-    return {};
+  components: {
+    theListFilter
   }
 };
 </script>
