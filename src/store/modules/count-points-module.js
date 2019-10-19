@@ -30,10 +30,8 @@ const CountPointsData = {
         });
     },
     updateCountPointsDataFiltered({state, commit}, {param, arg}) {
-      console.log(param, arg, state.CountPointsData);
       let filteredList = state.CountPointsData; 
       if (arg) {
-        console.log('update filteredList');
         filteredList = state.CountPointsData.filter(item => item[param] === arg);
       }
       commit('setCountPointsDataFiltered', filteredList);
