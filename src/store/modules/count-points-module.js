@@ -6,7 +6,7 @@ const CountPointsData = {
   state: {
     isRequestingCountPointsData: false,
     CountPointsData: null,
-    CountPointsDataFiltered: null
+    CountPointsDataFiltered: []
   },
   mutations: {
     setIsRequestingCountPointsData(state, payload) {

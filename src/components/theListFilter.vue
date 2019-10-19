@@ -1,11 +1,14 @@
 <template>
   <div>
-    <div>
-      <input type="radio" id="type" value="type" v-model="filterby">
-      <label for="type">Type</label>
-      <br>
-      <input type="radio" id="category" value="category" v-model="filterby">
-      <label for="category">category</label>
+    <div class="flex items-center">
+      <div class="flex-1">
+        <input type="radio" id="type" value="type" v-model="filterby">
+        <label for="type">Type</label>
+      </div>
+      <div class="flex-1">
+        <input type="radio" id="category" value="category" v-model="filterby">
+        <label for="category">category</label>
+      </div>
     </div>
     <div v-if="filterby === 'type'">
       <select v-model="type">
