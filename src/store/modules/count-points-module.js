@@ -29,12 +29,12 @@ const CountPointsData = {
           commit('setIsRequestingCountPointsData', false);
         });
     },
-    updateCountPointsDataFiltered({state, commit}, type) {
-      console.log(type, state.CountPointsData);
+    updateCountPointsDataFiltered({state, commit}, {param, arg}) {
+      console.log(param, arg, state.CountPointsData);
       let filteredList = state.CountPointsData; 
-      if (type) {
+      if (arg) {
         console.log('update filteredList');
-        filteredList = state.CountPointsData.filter(item => item.road_type === type);
+        filteredList = state.CountPointsData.filter(item => item[param] === arg);
       }
       commit('setCountPointsDataFiltered', filteredList);
     }

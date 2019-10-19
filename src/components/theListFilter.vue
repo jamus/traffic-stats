@@ -25,7 +25,8 @@ export default {
   methods: {
     ...mapActions('countPoints', ['updateCountPointsDataFiltered']),
     updateList(val) {
-      this.$store.dispatch('countPoints/updateCountPointsDataFiltered', val)
+      const config = { param: 'road_type', arg: val };
+      this.$store.dispatch('countPoints/updateCountPointsDataFiltered', config )
       console.log('selected changed!', val);
     }
   }
