@@ -3,9 +3,7 @@
     countPointCountData {{ countPointID }}
     <div v-if="CountPointCountsData && yearsCounted"
           class="flex">
-      {{ roadDirectionsOfTravel }}
       <div v-for="direction in roadDirectionsOfTravel">
-        {{ direction }}
         <countPointCountChart :chartData="chartData(direction)" :options="options" />
         </div>
     </div>
