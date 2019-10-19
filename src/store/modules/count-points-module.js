@@ -37,8 +37,7 @@ const CountPointsData = {
       commit('setCountPointsDataFiltered', filteredList);
     },
     updateCountPointsDataFilteredByLength({state, commit}, val) {
-      
-      let filteredList = state.CountPointsData.filter(item =>  Number(item.link_length_km) <= val &&  Number(item.link_length_km) > 0);
+      let filteredList = state.CountPointsData.filter(item => item.link_length_km <= val);
       commit('setCountPointsDataFiltered', filteredList);
     }
   }
