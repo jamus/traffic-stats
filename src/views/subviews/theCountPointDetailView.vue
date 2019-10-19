@@ -1,11 +1,10 @@
 <template>
-  <div>
+  <div class="top-0 right-0 sticky">
     theCountPointDetailView<hr>
     <countPointDetails :countPointID="id"/>
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
 
 import countPointDetails from '@/components/countPointDetails';
 export default {
@@ -18,15 +17,6 @@ export default {
       required: true,
       type: Number
     }
-  },
-  beforeRouteLeave(to, from, next) {
-    this.clearCountPointCountsData();
-    this.clearCountPointDetailsData();
-    next();
-  },
-  methods: {
-    ...mapActions('countPointDetail', ['clearCountPointDetailsData']),
-    ...mapActions('countPointCounts', ['clearCountPointCountsData'])
   }
 };
 </script>

@@ -1,6 +1,9 @@
 <template>
-    <div id="app" class="text-sm">
+    <div id="app">
+      <div class="p-6 bg-gray-100 text-center">Filter Goes here</div>
+      <div class="text-sm container mx-auto">
         <router-view></router-view>
+      </div>
     </div>
 </template>
 

@@ -17,7 +17,8 @@
 </template>
 <script>
 import countPointCountData from '@/components/countPointCountData';
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
+
 export default {
   name: 'countPointDetails',
   components: {
@@ -29,13 +30,25 @@ export default {
       type: Number
     }
   },
+  watch: {
+    '$route': 'getData'
+  },
   mounted() {
-    this.$store.dispatch('countPointDetail/requestCountPointData', this.countPointID)
+    this.getData();
+  },
+  methods: {
+    ...mapActions('countPointDetail', ['clearCountPointDetailsData']),
+    ...mapActions('countPointCounts', ['clearCountPointCountsData']),
+    getData() {
+      this.clearCountPointDetailsData();
+      this.clearCountPointCountsData();
+      this.$store.dispatch('countPointDetail/requestCountPointData', this.countPointID)
       .catch(error => {
         this.$store.commit('countPointDetail/setIsRequestingCountPointData', false);
         this.$store.dispatch('countPointDetail/clearPropertyDetailsData');
         console.error('error requestCountPointData');
       });
+    },
   },
   computed: {
     ...mapState('countPointDetail', [
