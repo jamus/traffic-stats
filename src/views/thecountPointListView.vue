@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <theCountPointList />
-    <router-view></router-view>
+  <div class="flex">
+    <div class="w-1/3">
+      <theCountPointList />
+    </div>
+    <div class="w-3/4">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 <script>

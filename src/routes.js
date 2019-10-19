@@ -1,5 +1,5 @@
 import thecountPointListView from '@/views/thecountPointListView';
-import theCountPointDetailView from '@/views/theCountPointDetailView';
+import theCountPointDetailView from '@/views/subviews/theCountPointDetailView';
 import viewNotFound from '@/views/theViewNotFoundView';
 
 export default [
