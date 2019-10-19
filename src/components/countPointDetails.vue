@@ -16,7 +16,7 @@
           </ul>
         </div>
         <countPointCountData :countPointID="countPointID"/>
-        <countPointLocation :coordinates="{ lat: CountPointData.latitude, long: CountPointData.longitude}"/>
+        <countPointLocation :coordinates="[CountPointData.longitude, CountPointData.latitude]"/>
     </div>
     <div v-else>
       Loading...
