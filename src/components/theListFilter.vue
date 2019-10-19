@@ -16,7 +16,7 @@
     </div>
     <div v-if="filterby === 'length'">
       link_length_km
-      <input type="range" v-model="linkLength" min="0" max="20" step=".5"> {{ linkLength }}
+      0<input type="range" v-model="linkLength" min="0.5" max="20" step=".5">20
     </div>
     <div v-if="filterby === 'type'">
       <select v-model="type">
