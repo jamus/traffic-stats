@@ -1,11 +1,10 @@
 <template>
   <div>
-    <select v-model="selected">
-      <option disabled value="">road_type</option>
+    <select v-model="type">
+      <option disabled value="">Road Type</option>
       <option value="major">Major</option>
       <option value="minor">Minor</option>
     </select>
-    <span>Selected: {{ selected }}</span>
   </div>
 </template>
 <script>
@@ -14,20 +13,20 @@ export default {
   name: 'theListFilter',
   data() {
     return {
-      selected: ''
+      type: ''
     }
   },
   watch: {
-    selected: function (newVal) {
-      this.updateList(newVal)
+    type: function (newVal) {
+      this.updateListForType(newVal)
     }
   },
   methods: {
     ...mapActions('countPoints', ['updateCountPointsDataFiltered']),
-    updateList(val) {
+    updateListForType(val) {
       const config = { param: 'road_type', arg: val };
       this.$store.dispatch('countPoints/updateCountPointsDataFiltered', config )
-      console.log('selected changed!', val);
+      console.log('type changed!', val);
     }
   }
 };
