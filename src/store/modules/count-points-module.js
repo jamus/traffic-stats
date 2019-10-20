@@ -37,8 +37,12 @@ const CountPointsData = {
       commit('setCountPointsDataFiltered', filteredList);
     },
     updateCountPointsDataFilteredByLength({state, commit}, val) {
-      let filteredList = state.CountPointsData.filter(item => item.link_length_km <= val);
-      commit('setCountPointsDataFiltered', filteredList);
+      console.log('updateCountPointsDataFilteredByLength');
+      let filteredList = state.CountPointsData.filter(item => +item.link_length_km <= val && +item.link_length_km > 0);
+      let sorted = filteredList.sort(function(a, b) {
+          return +a.link_length_km - +b.link_length_km;
+      });
+      commit('setCountPointsDataFiltered', sorted);
     }
   }
 };

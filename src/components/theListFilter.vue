@@ -51,10 +51,14 @@ export default {
     }
   },
   watch: {
-    filterby: function () {
+    filterby: function (val) {
       this.type = '';
       this.category = '';
       this.linkLength = 20;
+      if (val === 'length') {
+        console.log('updateListForLength');
+        this.updateListForLength(20)
+      }
     },
     type: function (newVal) {
       this.updateListForType(newVal)

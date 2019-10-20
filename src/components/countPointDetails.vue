@@ -4,6 +4,7 @@
         class="text-xs">
         <div class="flex">
           <ul class="w-1/2">
+            <li>{{ CountPointData.link_length_km }}</li>
             <li>{{ CountPointData.road_name }}</li>
             <li>{{ CountPointData.region_id }}</li>
             <li>{{ CountPointData.region_name }}</li>
