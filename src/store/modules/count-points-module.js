@@ -41,7 +41,7 @@ const CountPointsData = {
       let filteredList = state.CountPointsData.filter(item => +item.link_length_km <= val && +item.link_length_km > 0);
       let sorted = filteredList.sort(function(a, b) {
           return +a.link_length_km - +b.link_length_km;
-      });
+      }).reverse();
       commit('setCountPointsDataFiltered', sorted);
     }
   }
