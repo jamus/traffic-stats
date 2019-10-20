@@ -1,17 +1,13 @@
 <template>
   <div>
-    <div class="flex items-center">
-      <div class="flex-1">
-        <input type="radio" id="length" value="length" v-model="filterby">
-        <label for="length">Length in km</label>
-      </div>
-      <div class="flex-1">
-        <input type="radio" id="type" value="type" v-model="filterby">
-        <label for="type">Type</label>
-      </div>
-      <div class="flex-1">
-        <input type="radio" id="category" value="category" v-model="filterby">
-        <label for="category">category</label>
+    <div class="mx-auto w-1/5">
+      <div class="flex items-center justify-center">
+        <input type="radio" id="length" value="length" v-model="filterby" class="toggle-left">
+        <label for="length" class="btn">Length</label>
+        <input type="radio" id="type" value="type" v-model="filterby" class="toggle-centre">
+        <label for="type" class="btn">Type</label>
+        <input type="radio" id="category" value="category" v-model="filterby" class="toggle-right">
+        <label for="category" class="btn">category</label>
       </div>
     </div>
     <div v-if="filterby === 'length'">
@@ -89,7 +85,7 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
 input[type=range] {
   height: 25px;
   -webkit-appearance: none;
@@ -178,5 +174,37 @@ input[type=range]:focus::-ms-fill-lower {
 }
 input[type=range]:focus::-ms-fill-upper {
   background: #2497E3;
+}
+
+.btn {
+  transition: background 600ms ease;
+  z-index: 1;
+  @apply text-grey-500 border-2 border-grey-700 inline-block px-6 py-2 relative text-center;
+}
+
+input[type="radio"] {
+    display: none;
+    & + label{
+        text-transform: capitalize;
+        cursor: pointer;
+        @apply bg-grey-800;
+    }
+    &.toggle-left + label {
+        border-right: 0;
+        @apply rounded rounded-l;
+    }
+    &.toggle-centre + label {
+        border-right: 0;
+        margin-left: -4px;
+    }
+    &.toggle-right + label{
+        margin-left: -2px;
+        @apply rounded rounded-r;
+    }
+    &:checked + label {
+        cursor: default;
+        @apply text-grey-300 bg-grey-700;
+    }
+    
 }
 </style>
