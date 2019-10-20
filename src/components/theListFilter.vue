@@ -56,7 +56,6 @@ export default {
       this.category = '';
       this.linkLength = 20;
       if (val === 'length') {
-        console.log('updateListForLength');
         this.updateListForLength(20)
       }
     },
