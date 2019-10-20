@@ -152,7 +152,6 @@ input[type=range]::-webkit-slider-thumb {
   height: 18px;
   width: 18px;
   border-radius: 25px;
-  // background: #A1D0FF;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -7px;
@@ -168,10 +167,13 @@ input[type=range]::-webkit-slider-thumb {
 
 input[type="radio"].toggle {
     display: none;
-    & + label{
+    & + label {
         text-transform: capitalize;
         cursor: pointer;
         @apply bg-yellow-800;
+    }
+    & + label:hover {
+      @apply text-yellow-500;
     }
     &.toggle-left + label {
         border-right: 0;
@@ -181,7 +183,7 @@ input[type="radio"].toggle {
         border-right: 0;
         margin-left: -4px;
     }
-    &.toggle-right + label{
+    &.toggle-right + label {
         margin-left: -2px;
         @apply rounded rounded-r;
     }
