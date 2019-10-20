@@ -34,17 +34,43 @@
         <div class="check"></div>
       </li>
     </ul>
-    <div v-if="filterby === 'category'" class="option">
-      <select v-model="category">
-        <option disabled value="">Road category</option>
-        <option value="TM">M or Class A Trunk Motorway</option>
-        <option value="PM">M or Class A Principal Motorway</option>
-        <option value="TA">Class A Trunk road</option>
-        <option value="PA">Class A Principal road</option>
-        <option value="MB">Class B road</option>
-        <option value="MCU">Class C and Unclassified road</option>
-      </select>
-    </div>
+    <ul v-if="filterby === 'category'" class="option option-category">
+        <li>
+          <input type="radio" id="all" value="" v-model="category" >
+          <label for="all">All classes of road</label>
+          <div class="check"></div>
+        </li>
+        <li>
+          <input type="radio" id="TM" value="TM" v-model="category" >
+          <label for="TM">M or Class A Trunk Motorway</label>
+          <div class="check"></div>
+        </li>
+        <!-- <li>
+          <input type="radio" id="PM" value="PM" v-model="category" >
+          <label for="PM">M or Class A Principal Motorway</label>
+          <div class="check"></div>
+        </li> -->
+        <li>
+          <input type="radio" id="TA" value="TA" v-model="category" >
+          <label for="TA">Class A Trunk road</label>
+          <div class="check"></div>
+        </li>
+        <li>
+          <input type="radio" id="PA" value="PA" v-model="category" >
+          <label for="PA">Class A Principal road</label>
+          <div class="check"></div>
+        </li>
+        <li>
+          <input type="radio" id="MB" value="MB" v-model="category" >
+          <label for="MB">Class B road</label>
+          <div class="check"></div>
+        </li>
+        <li>
+          <input type="radio" id="MCU" value="MCU" v-model="category" >
+          <label for="MCU">Class C and Unclassified road</label>
+          <div class="check"></div>
+        </li>
+    </ul>
   </div>
 </template>
 <script>
@@ -170,8 +196,10 @@ input[type="radio"].toggle {
   @apply h-12
 }
 
+
+
 ul.option {
-  @apply pl-4 pt-2 inline-block text-left;
+  @apply pl-4 pt-2 flex items-center justify-center text-left;
 
   input[type=radio] {
     top: 0;
@@ -179,7 +207,6 @@ ul.option {
     visibility: hidden;
   }
   label {
-    text-transform: capitalize;
     display: inline-block;
     position: relative;
     margin: 10px auto;
@@ -194,8 +221,8 @@ ul.option {
   li {
     position: relative;
     text-align: left;
-    display: inline-block;
     width: 130px;
+    @apply flex items-center;
   }
   
   li:hover label {
@@ -239,6 +266,16 @@ ul.option {
 
   input[type=radio]:checked ~ label{
     @apply text-yellow-500;
+  }
+}
+
+ul.option-category {
+  li {
+    width: 200px;
+    @apply mr-4;
+  }
+  label {
+    @apply text-xs;
   }
 }
 
