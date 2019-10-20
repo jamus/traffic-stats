@@ -52,12 +52,14 @@ export default {
   },
   watch: {
     filterby: function (val) {
-      this.type = '';
-      this.category = '';
-      this.linkLength = 20;
       if (val === 'length') {
-        console.log('updateListForLength');
         this.updateListForLength(20)
+      }
+      else if (val === 'type') {
+        this.updateListForType()
+      }
+      else if (val === 'category') {
+        this.updateListForCategory()
       }
     },
     type: function (newVal) {
@@ -74,6 +76,7 @@ export default {
     ...mapActions('countPoints', ['updateCountPointsDataFiltered']),
     updateListForType(val) {
       const config = { param: 'road_type', arg: val };
+      console.log('updateListForType', config);
       this.$store.dispatch('countPoints/updateCountPointsDataFiltered', config )
     },
     updateListForCategory(val) {
@@ -82,7 +85,6 @@ export default {
     },
     updateListForLength(val) {
       this.$store.dispatch('countPoints/updateCountPointsDataFilteredByLength', val )
-      console.log('linkLength changed!', val);
     }
   }
 };
