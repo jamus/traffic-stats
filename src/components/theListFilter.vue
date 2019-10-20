@@ -108,7 +108,7 @@ input[type=range]::-webkit-slider-runnable-track {
   box-shadow: 0px 0px 0px #000000;
   border-radius: 1px;
   border: 0px solid #000000;
-  @apply bg-yellow-600;
+  @apply bg-yellow-700;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -123,39 +123,11 @@ input[type=range]::-webkit-slider-thumb {
   @apply bg-yellow-500;
 }
 
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 5px;
-  cursor: pointer;
-  animate: 0.2s;
-  // box-shadow: 0px 0px 0px #000000;
-  background: #2497E3;
-  border-radius: 1px;
-  border: 0px solid #000000;
-}
-input[type=range]::-moz-range-thumb {
-  // box-shadow: 0px 0px 0px #000000;
-  // border: 1px solid #2497E3;
-  height: 18px;
-  width: 18px;
-  border-radius: 25px;
-  // background: #A1D0FF;
-  cursor: pointer;
-}
-input[type=range]::-ms-track {
-  width: 100%;
-  height: 5px;
-  cursor: pointer;
-  animate: 0.2s;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
 
 .btn {
   transition: background 600ms ease;
   z-index: 1;
-  @apply text-grey-500 border-2 border-grey-700 inline-block px-6 py-2 relative text-center;
+  @apply text-yellow-600 border-2 border-yellow-700 inline-block px-6 py-2 relative text-center;
 }
 
 input[type="radio"] {
@@ -163,7 +135,7 @@ input[type="radio"] {
     & + label{
         text-transform: capitalize;
         cursor: pointer;
-        @apply bg-grey-800;
+        @apply bg-yellow-800;
     }
     &.toggle-left + label {
         border-right: 0;
@@ -179,7 +151,7 @@ input[type="radio"] {
     }
     &:checked + label {
         cursor: default;
-        @apply text-grey-300 bg-grey-700;
+        @apply text-yellow-500 bg-yellow-700;
     }
     
 }
