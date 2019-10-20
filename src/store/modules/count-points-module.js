@@ -34,6 +34,20 @@ const CountPointsData = {
       if (arg) {
         filteredList = state.CountPointsData.filter(item => item[param] === arg);
       }
+      if (param === 'road_category') { // just sorting list for UI feedback on list change
+        filteredList = filteredList.sort(function(a, b) {
+          if (a.road_category < b.road_category) { return -1; }
+          if (a.road_category > b.road_category) { return 1; }
+          return 0;
+        });
+      }
+      if (param === 'road_type') { // just sorting list for UI feedback on list change
+        filteredList = filteredList.sort(function(a, b) {
+          if (a.road_type < b.road_type) { return -1; }
+          if (a.road_type > b.road_type) { return 1; }
+          return 0;
+        });
+      }
       commit('setCountPointsDataFiltered', filteredList);
     },
     updateCountPointsDataFilteredByLength({state, commit}, val) {

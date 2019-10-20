@@ -5,7 +5,7 @@
       <div v-for="(item, index) in CountPointsDataFiltered" :key="index">
         <router-link :to="{ name:'countPointDetail', params: { id: item.count_point_id }}">
           {{ item.count_point_id }} - {{ item.road_name }} {{ item.road_type }}
-          {{ item.link_length_km }}
+          {{ item.link_length_km }} - {{ item.road_category }}
         </router-link>
       </div>
     </div>
