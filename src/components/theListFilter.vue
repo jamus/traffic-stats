@@ -10,18 +10,21 @@
         <label for="category" class="btn">category</label>
       </div>
     </div>
-    <div v-if="filterby === 'length'">
-      link_length_km
-      0<input type="range" v-model="linkLength" min="0.5" max="20" step=".5">20
+    <div v-if="filterby === 'length'" class="option flex items-center justify-center">
+      <span class="text-sm p-4">0 km</span>
+      <span class="w-1/3 inline-block">
+        <input type="range" v-model="linkLength" min="0.5" max="20" step=".5">
+      </span>
+      <span class="text-sm p-4">20 km</span>
     </div>
-    <div v-if="filterby === 'type'">
+    <div v-if="filterby === 'type'" class="option">
       <select v-model="type">
         <option disabled value="">Road Type</option>
         <option value="major">Major</option>
         <option value="minor">Minor</option>
       </select>
     </div>
-    <div v-if="filterby === 'category'">
+    <div v-if="filterby === 'category'" class="option">
       <select v-model="category">
         <option disabled value="">Road category</option>
         <option value="TM">M or Class A Trunk Motorway</option>
@@ -91,51 +94,52 @@ input[type=range] {
   -webkit-appearance: none;
   margin: 10px 0;
   width: 100%;
+  background: none;
 }
 input[type=range]:focus {
   outline: none;
 }
+
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 5px;
   cursor: pointer;
   animate: 0.2s;
   box-shadow: 0px 0px 0px #000000;
-  background: #2497E3;
   border-radius: 1px;
   border: 0px solid #000000;
+  @apply bg-yellow-600;
 }
+
 input[type=range]::-webkit-slider-thumb {
   box-shadow: 0px 0px 0px #000000;
-  border: 1px solid #2497E3;
   height: 18px;
   width: 18px;
   border-radius: 25px;
-  background: #A1D0FF;
+  // background: #A1D0FF;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -7px;
+  @apply bg-yellow-500;
 }
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #2497E3;
-}
+
 input[type=range]::-moz-range-track {
   width: 100%;
   height: 5px;
   cursor: pointer;
   animate: 0.2s;
-  box-shadow: 0px 0px 0px #000000;
+  // box-shadow: 0px 0px 0px #000000;
   background: #2497E3;
   border-radius: 1px;
   border: 0px solid #000000;
 }
 input[type=range]::-moz-range-thumb {
-  box-shadow: 0px 0px 0px #000000;
-  border: 1px solid #2497E3;
+  // box-shadow: 0px 0px 0px #000000;
+  // border: 1px solid #2497E3;
   height: 18px;
   width: 18px;
   border-radius: 25px;
-  background: #A1D0FF;
+  // background: #A1D0FF;
   cursor: pointer;
 }
 input[type=range]::-ms-track {
@@ -146,34 +150,6 @@ input[type=range]::-ms-track {
   background: transparent;
   border-color: transparent;
   color: transparent;
-}
-input[type=range]::-ms-fill-lower {
-  background: #2497E3;
-  border: 0px solid #000000;
-  border-radius: 2px;
-  box-shadow: 0px 0px 0px #000000;
-}
-input[type=range]::-ms-fill-upper {
-  background: #2497E3;
-  border: 0px solid #000000;
-  border-radius: 2px;
-  box-shadow: 0px 0px 0px #000000;
-}
-input[type=range]::-ms-thumb {
-  margin-top: 1px;
-  box-shadow: 0px 0px 0px #000000;
-  border: 1px solid #2497E3;
-  height: 18px;
-  width: 18px;
-  border-radius: 25px;
-  background: #A1D0FF;
-  cursor: pointer;
-}
-input[type=range]:focus::-ms-fill-lower {
-  background: #2497E3;
-}
-input[type=range]:focus::-ms-fill-upper {
-  background: #2497E3;
 }
 
 .btn {
@@ -206,5 +182,9 @@ input[type="radio"] {
         @apply text-grey-300 bg-grey-700;
     }
     
+}
+
+.option {
+  @apply h-12
 }
 </style>

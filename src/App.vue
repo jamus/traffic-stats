@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="bg-grey-900 text-grey">
+    <div id="app" class="bg-grey-900 text-grey-500">
       <theListFilter class="p-6 text-center" />
       <div class="text-sm container mx-auto">
         <router-view></router-view>

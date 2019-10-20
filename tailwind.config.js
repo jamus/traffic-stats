@@ -13,7 +13,9 @@ module.exports = {
         '900': '#212121',
       },
       yellow: {
-        default: 'EDE26A'
+        '500': '#EDE26A',
+        '600': '#5C5C4C',
+        '800': '#424232'
       }
     },
     extend: {}
