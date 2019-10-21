@@ -37,7 +37,7 @@ export default {
 <style scoped>
 .map {
   width: 880px;
-  height: 400px;
+  height: 350px;
   display: inline-block;
 }
 .mgl-map-wrapper {
