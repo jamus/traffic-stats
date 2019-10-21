@@ -1,9 +1,9 @@
 <template>
-  <div class="container px-4 pr-12">
+  <div class="container px-4">
     countPointCountData {{ countPointID }}
     <chartLegend />
     <div v-if="CountPointCountsData && yearsCounted"
-          class="flex justify-around mt-6">
+          class="flex justify-around mt-6 pl-2">
       
       <div v-for="direction in roadDirectionsOfTravel" class="w-1/2">
         <countPointCountChart :chartData="chartData(direction)" :options="options" />

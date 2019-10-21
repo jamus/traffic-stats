@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="mx-auto w-1/5">
+  <div class="p-6 text-center fixed w-full bg-grey-900 z-50">
+    <div class="mx-auto w-1/5 mb-2">
       <div class="flex items-center justify-center">
         <input type="radio" id="length" value="length" v-model="filterby" class="toggle toggle-left">
         <label for="length" class="btn">Length</label>
@@ -272,12 +272,13 @@ ul.option {
 }
 
 ul.option-category {
+  @apply pt-2;
   li {
-    width: 200px;
+    width: 150px;
     @apply mr-4;
   }
   label {
-    @apply text-xs;
+    @apply text-xs pt-1;
   }
 }
 

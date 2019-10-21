@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-32 pt-4">
+  <div class="mt-32 pt-6">
     <div v-if="isRequestingCountPointsData" class="pt-4"><h1 class="text-xl px-4">Loading...</h1></div>
     <div v-if="doHaveRoadList">
       <h1 class="text-xl px-4">Count points</h1>

@@ -1,6 +1,6 @@
 <template>
     <div id="app" class="text-grey-500">
-      <theListFilter class="p-6 text-center fixed w-full bg-grey-900" />
+      <theListFilter />
       <div class="text-sm container mx-auto">
         <router-view></router-view>
       </div>
