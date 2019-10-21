@@ -3,9 +3,18 @@
     countPointCountData {{ countPointID }}
     <div v-if="CountPointCountsData && yearsCounted"
           class="flex">
+
       <div v-for="direction in roadDirectionsOfTravel">
+        Direction of Travel
+        <input type="radio" :id="direction" :value="direction" v-model="chartSelected">
+        <label :for="direction">{{ direction }}</label>
+      </div>
+
+      <div v-for="direction in roadDirectionsOfTravel">
+        <div v-if="chartSelected === direction">
         <countPointCountChart :chartData="chartData(direction)" :options="options" />
         </div>
+      </div>
     </div>
     <div v-else>
       Loading CountPointCountsData 
@@ -28,6 +37,7 @@ export default {
   },
   data() {
     return {
+      chartSelected: '',
       options: {
         lineTension: 0
       }
