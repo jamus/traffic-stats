@@ -8,6 +8,7 @@
 <script>
 import Mapbox from "mapbox-gl";
 import { MglMap, MglMarker } from "vue-mapbox";
+import COLOURS from '@/constants/colourValues.js';
 export default {
   name: 'countPointLocation',
   components: {
@@ -22,7 +23,7 @@ export default {
   },
   data() {
     return {
-      markerCol: 'blue',
+      markerCol: COLOURS.ALL_VEHICLES,
       accessToken: 'pk.eyJ1IjoiamF5cmV5bm8iLCJhIjoiY2sxeHdrejg2MDgwMTNjcGgzcnM2YTU5dyJ9.QnKAon8cixzaqDGloGcF2Q', // your access token. Needed if you using Mapbox maps
       mapStyle: 'mapbox://styles/mapbox/streets-v11' // your map style
     };
@@ -38,7 +39,7 @@ export default {
 </script>
 <style scoped>
 .map {
-  width: 916px;
+  width: 900px;
   height: 400px;
   display: inline-block;
 }
