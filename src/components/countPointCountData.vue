@@ -5,6 +5,7 @@
           class="flex justify-around mt-6 pl-2">
       
       <div v-for="direction in roadDirectionsOfTravel" class="w-1/2">
+        <h4 class="text-center">{{ direction | directionString }}</h4>
         <countPointCountChart :chartData="chartData(direction)" />
         </div>
     </div>
@@ -82,6 +83,28 @@ export default {
     roadDirectionsOfTravel() {
       return [...new Set(this.CountPointCountsData.map(item => item.direction_of_travel))];
       
+    }
+  },
+  filters: {
+    directionString: function (value) {
+      let string;
+      switch (value) {
+        case 'S':
+          string = 'South';
+          break;
+        case 'N':
+          string = 'North';
+          break;
+        case 'E':
+          string = 'East';
+          break;
+        case 'W':
+          string = 'West';
+          break;
+        default:
+          string = 'Unknown';
+      }
+      return string;
     }
   }
 };
