@@ -25,15 +25,12 @@ export default {
     return {
       markerCol: COLOURS.ALL_VEHICLES,
       accessToken: 'pk.eyJ1IjoiamF5cmV5bm8iLCJhIjoiY2sxeHdrejg2MDgwMTNjcGgzcnM2YTU5dyJ9.QnKAon8cixzaqDGloGcF2Q', // your access token. Needed if you using Mapbox maps
-      mapStyle: 'mapbox://styles/mapbox/streets-v11' // your map style
+      mapStyle: 'mapbox://styles/jayreyno/ck20xk4tu0rgk1crp2pex3jpo' // your map style
     };
   },
   created() {
     // We need to set mapbox-gl library here in order to use it in template
     this.mapbox = Mapbox;
-  },
-  mounted() {
-    console.log(this.mapbox.Map.resize);
   }
 };
 </script>

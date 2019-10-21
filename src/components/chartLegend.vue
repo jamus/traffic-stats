@@ -1,6 +1,6 @@
 <template>
   <div class="mt-6">
-    <ul class="flex justify-between relative">
+    <ul class="flex justify-between relative text-xs">
       <li :style="{ color: colours.all }"><span>All motor vehicles</span></li>
       <li :style="{ color: colours.cars }"><span>Cars & taxis</span></li>
       <li :style="{ color: colours.hgvs }"><span>HGVs</span></li>

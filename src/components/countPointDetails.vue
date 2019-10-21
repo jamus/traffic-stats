@@ -1,21 +1,20 @@
 <template>
   <div class="relative w-full">
-    <h1 class="text-xl px-4">Count Point {{ countPointID }}</h1>
     <div v-if="CountPointData"
-        class="text-xs w-full">
-        <div class="w-full">
-          <!-- <ul class="w-1/2">
-            <li>{{ CountPointData.link_length_km }}</li>
-            <li>{{ CountPointData.road_name }}</li>
-            <li>{{ CountPointData.region_id }}</li>
-            <li>{{ CountPointData.region_name }}</li>
+        class="text-sm w-full">
+        <h1 class="text-xl px-10">Count Point {{ countPointID }} ({{ CountPointData.road_name }})</h1>
+        <div class="flex px-10 mt-4 mb-8">
+          <ul class="w-1/2">
+            <li>Length: <strong class="font-bold">{{ CountPointData.link_length_km }}</strong>km</li>
+            <li>Local Authority: <strong class="font-bold">{{ CountPointData.local_authority_name }}</strong></li>
+            <li>Region: <strong class="font-bold">{{ CountPointData.region_name }}</strong></li>
           </ul>
           <ul>
-            <li>{{ CountPointData.road_category }}</li>
+            <li><strong class="font-bold">{{ CountPointData.road_category }}</strong></li>
             <li>{{ CountPointData.road_category_description }}</li>
-            <li>{{ CountPointData.road_name }}</li>
-            <li>{{ CountPointData.road_type }}</li>
-          </ul> -->
+            <!-- <li><strong class="font-bold">{{ CountPointData.start_junction_road_name }}</strong></li> -->
+            <li>Road type: <strong class="font-bold capitalize">{{ CountPointData.road_type }}</strong></li>
+          </ul>
         </div>
         <countPointCountData :countPointID="countPointID"/>
         <countPointLocation :coordinates="[CountPointData.longitude, CountPointData.latitude]"/>
