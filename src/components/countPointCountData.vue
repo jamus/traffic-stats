@@ -1,9 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container px-4 pr-12">
     countPointCountData {{ countPointID }}
+    <chartLegend />
     <div v-if="CountPointCountsData && yearsCounted"
-          class="">
-      <div v-for="direction in roadDirectionsOfTravel">
+          class="flex justify-around mt-6">
+      
+      <div v-for="direction in roadDirectionsOfTravel" class="w-1/2">
         <countPointCountChart :chartData="chartData(direction)" :options="options" />
         </div>
     </div>
@@ -14,11 +16,13 @@
 </template>
 <script>
 import { mapState, mapGetters } from 'vuex';
+import chartLegend from '@/components/chartLegend';
 import countPointCountChart from '@/components/countPointCountChart';
 export default {
   name: 'countPointCountData',
   components: {
-    countPointCountChart
+    countPointCountChart,
+    chartLegend
   },
   props: {
     countPointID: {
@@ -29,9 +33,29 @@ export default {
   data() {
     return {
       options: {
-        lineTension: 0,
+        elements: {
+          line: {
+            tension: 0
+          }
+        },
         legend: {
-          display: true
+          display: false
+        },
+        scales: {
+          xAxes: [{
+            gridLines: {
+              display: false
+            },
+            ticks: {
+              maxTicksLimit: 6,
+              padding: 8,
+            }
+          }],
+          yAxes: [{
+            gridLines: {
+              display: false
+            }
+          }]
         }
       }
     };

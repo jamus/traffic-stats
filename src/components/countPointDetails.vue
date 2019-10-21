@@ -19,9 +19,6 @@
         </div>
         <countPointCountData :countPointID="countPointID"/>
         <countPointLocation :coordinates="[CountPointData.longitude, CountPointData.latitude]"/>
-        <br>
-        <hr>
-        <br>
     </div>
     <div v-else class=" w-full">
       <h5 class="text-yellow-600">Loading data...</h5>
