@@ -13,7 +13,7 @@ export default {
           }
         },
         legend: {
-          // display: false
+          display: false
         },
         scales: {
           xAxes: [{
