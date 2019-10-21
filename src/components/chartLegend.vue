@@ -5,7 +5,7 @@
       <li>Cars & taxis</li>
       <li>HGVs</li>
       <li>Buses & coaches</li>
-      <li>LCVs</li>
+      <li>LGVs</li>
       <li>Motorcycles & scooters</li>
       <li>Pedal cycles</li>
     </ul>

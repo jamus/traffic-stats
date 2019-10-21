@@ -8,7 +8,7 @@
           <div class="my-4 mx-2 px-2 py-3 bg-grey-900 hover:text-yellow-500 text-yellow-600 border-b-2 border-yellow-700">
             <h3 class="text-lg">{{ item.count_point_id }}</h3>
             <h3 class="text-lg">{{ item.road_name }}</h3> 
-          {{ item.link_length_km }}km - {{ item.road_category }} {{ item.road_type }}
+          {{ item.link_length_km }}km - {{ item.road_category }} - <span class="capitalize">{{ item.road_type }}</span>
           </div>
         </router-link>
       </div>

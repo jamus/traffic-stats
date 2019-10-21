@@ -1,12 +1,11 @@
 <template>
   <div class="container px-4">
-    countPointCountData {{ countPointID }}
     <chartLegend />
     <div v-if="CountPointCountsData && yearsCounted"
           class="flex justify-around mt-6 pl-2">
       
       <div v-for="direction in roadDirectionsOfTravel" class="w-1/2">
-        <countPointCountChart :chartData="chartData(direction)" :options="options" />
+        <countPointCountChart :chartData="chartData(direction)" />
         </div>
     </div>
     <div v-else>
@@ -29,36 +28,6 @@ export default {
       required: true,
       type: Number
     }
-  },
-  data() {
-    return {
-      options: {
-        elements: {
-          line: {
-            tension: 0
-          }
-        },
-        legend: {
-          display: false
-        },
-        scales: {
-          xAxes: [{
-            gridLines: {
-              display: false
-            },
-            ticks: {
-              maxTicksLimit: 6,
-              padding: 8,
-            }
-          }],
-          yAxes: [{
-            gridLines: {
-              display: false
-            }
-          }]
-        }
-      }
-    };
   },
   mounted() {
     this.$store.dispatch('countPointCounts/requestCountPointCountsData', this.countPointID)
