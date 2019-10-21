@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container map">
     <MglMap :accessToken="accessToken" :mapStyle="mapStyle" :center="coordinates" :zoom="14" :interactive=false>
       <MglMarker :coordinates="coordinates" color="blue" :offset="[418,0]" />
     </MglMap>
@@ -33,6 +33,9 @@ export default {
 };
 </script>
 <style scoped>
+.map {
+  width: 400px;
+}
 .mgl-map-wrapper {
   pointer-events: none;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="top-0 right-0 sticky">
+  <div class="fixed top-0 mt-32 pt-4">
     <countPointDetails :countPointID="id"/>
   </div>
 </template>

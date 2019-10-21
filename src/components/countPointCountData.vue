@@ -2,13 +2,13 @@
   <div class="container">
     countPointCountData {{ countPointID }}
     <div v-if="CountPointCountsData && yearsCounted"
-          class="flex">
+          class="">
       <div v-for="direction in roadDirectionsOfTravel">
         <countPointCountChart :chartData="chartData(direction)" :options="options" />
         </div>
     </div>
     <div v-else>
-      Loading CountPointCountsData 
+      <h5 class="text-yellow-600">Loading data...</h5>
     </div>
   </div>
 </template>
@@ -29,7 +29,10 @@ export default {
   data() {
     return {
       options: {
-        lineTension: 0
+        lineTension: 0,
+        legend: {
+          display: true
+        }
       }
     };
   },

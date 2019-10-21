@@ -1,9 +1,10 @@
 <template>
-  <div>Count Point {{ countPointID }}
+  <div class="relative w-full">
+    <h1 class="text-xl px-4">Count Point {{ countPointID }}</h1>
     <div v-if="CountPointData"
-        class="text-xs">
-        <div class="flex">
-          <ul class="w-1/2">
+        class="text-xs w-full">
+        <div class="w-full">
+          <!-- <ul class="w-1/2">
             <li>{{ CountPointData.link_length_km }}</li>
             <li>{{ CountPointData.road_name }}</li>
             <li>{{ CountPointData.region_id }}</li>
@@ -14,13 +15,16 @@
             <li>{{ CountPointData.road_category_description }}</li>
             <li>{{ CountPointData.road_name }}</li>
             <li>{{ CountPointData.road_type }}</li>
-          </ul>
+          </ul> -->
         </div>
         <countPointCountData :countPointID="countPointID"/>
         <countPointLocation :coordinates="[CountPointData.longitude, CountPointData.latitude]"/>
+        <br>
+        <hr>
+        <br>
     </div>
-    <div v-else>
-      Loading...
+    <div v-else class=" w-full">
+      <h5 class="text-yellow-600">Loading data...</h5>
     </div>
   </div>
 </template>
