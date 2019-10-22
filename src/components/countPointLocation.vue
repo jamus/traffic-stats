@@ -36,7 +36,7 @@ export default {
 </script>
 <style scoped>
 .map {
-  width: 880px;
+  width: 860px;
   height: 350px;
   display: inline-block;
 }
