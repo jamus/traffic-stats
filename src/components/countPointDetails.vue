@@ -8,12 +8,14 @@
             <li>Length: <strong class="font-bold">{{ CountPointData.link_length_km }}</strong>km</li>
             <li>Local Authority: <strong class="font-bold">{{ CountPointData.local_authority_name }}</strong></li>
             <li>Region: <strong class="font-bold">{{ CountPointData.region_name }}</strong></li>
+            <li v-if="CountPointData.start_junction_road_name">Start junction: <strong class="font-bold">{{ CountPointData.start_junction_road_name }}</strong></li>
           </ul>
           <ul>
             <li><strong class="font-bold">{{ CountPointData.road_category }}</strong></li>
             <li>{{ CountPointData.road_category_description }}</li>
             <!-- <li><strong class="font-bold">{{ CountPointData.start_junction_road_name }}</strong></li> -->
             <li>Road type: <strong class="font-bold capitalize">{{ CountPointData.road_type }}</strong></li>
+            <li v-if="CountPointData.end_junction_road_name">End junction: <strong class="font-bold">{{ CountPointData.end_junction_road_name }}</strong></li>
           </ul>
         </div>
         <countPointCountData :countPointID="countPointID"/>
