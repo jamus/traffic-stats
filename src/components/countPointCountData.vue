@@ -101,6 +101,9 @@ export default {
         case 'W':
           string = 'West';
           break;
+        case 'C':
+          string = 'Combined';
+          break;
         default:
           string = 'Unknown';
       }
