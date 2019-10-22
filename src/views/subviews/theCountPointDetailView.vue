@@ -1,5 +1,5 @@
 <template>
-  <div class="top-0 mt-32 pt-6">
+  <div class="mt-32 pt-6">
     <countPointDetails :countPointID="id"/>
     <div class="flex justify-between mx-8 mt-12 pb-24">
       <div>
