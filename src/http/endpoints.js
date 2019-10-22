@@ -3,7 +3,7 @@ THESE ENDPOINTS ARE USED STRICTLY FOR DEVELOPMENT
 Postman workspace: https://www.getpostman.com/collections/6d71292435ac8e8ee5f7
 */
 
-const postmanUrl = 'https://5e3e750d-ad4f-4d7d-8199-54355ba2e62d.mock.pstmn.io/traffic-data/';
+const postmanUrl = 'https://09226082-0d3c-4d06-8dd8-f1656b7cc644.mock.pstmn.io/traffic-data/';
 
 export const endpoints = {
   COUNT_POINTS: `${postmanUrl}count-points?filter[local_authority_id]=71&filter[page_number]=all`,
