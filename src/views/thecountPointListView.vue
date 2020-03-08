@@ -1,9 +1,11 @@
 <template>
-  <div class="flex">
-    <div class="w-1/3">
-      <theCountPointList />
+  <div class="flex wrap">
+    <div class="left">
+      <div class="viewport">
+        <theCountPointList />
+      </div>
     </div>
-    <div class="w-3/4">
+    <div class="right">
       <router-view></router-view>
     </div>
   </div>
@@ -16,3 +18,36 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.wrap {
+  display: flex;
+}
+
+.right {
+  flex-basis: 65%;
+}
+
+.left {
+  overflow: hidden;
+  flex-basis: 35%;
+  height: 100vh; 
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.viewport {
+    overflow: auto;
+
+    /* Make sure the inner div is not larger than the container
+     * so that we have room to scroll.
+     */
+    max-height: 100%;
+
+    /* Pick an arbitrary margin/padding that should be bigger
+     * than the max width of all the scroll bars across
+     * the devices you are targeting.
+     * padding = -margin
+     */
+    margin-right: -100px;
+    padding-right: 100px;
+}
+</style>

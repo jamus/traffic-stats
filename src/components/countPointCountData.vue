@@ -1,37 +1,34 @@
 <template>
-  <div class="container">
-    countPointCountData {{ countPointID }}
+  <div class="container px-4">
+    <chartLegend />
     <div v-if="CountPointCountsData && yearsCounted"
-          class="flex">
-      <div v-for="direction in roadDirectionsOfTravel">
-        <countPointCountChart :chartData="chartData(direction)" :options="options" />
+          class="flex justify-around mt-6 pl-2">
+      
+      <div v-for="direction in roadDirectionsOfTravel" class="w-1/2">
+        <h4 class="text-center">{{ direction | directionString }}</h4>
+        <countPointCountChart :chartData="chartData(direction)" />
         </div>
     </div>
     <div v-else>
-      Loading CountPointCountsData 
+      <h5 class="text-yellow-600">Loading data...</h5>
     </div>
   </div>
 </template>
 <script>
 import { mapState, mapGetters } from 'vuex';
+import chartLegend from '@/components/chartLegend';
 import countPointCountChart from '@/components/countPointCountChart';
 export default {
   name: 'countPointCountData',
   components: {
-    countPointCountChart
+    countPointCountChart,
+    chartLegend
   },
   props: {
     countPointID: {
       required: true,
       type: Number
     }
-  },
-  data() {
-    return {
-      options: {
-        lineTension: 0
-      }
-    };
   },
   mounted() {
     this.$store.dispatch('countPointCounts/requestCountPointCountsData', this.countPointID)
@@ -86,6 +83,31 @@ export default {
     roadDirectionsOfTravel() {
       return [...new Set(this.CountPointCountsData.map(item => item.direction_of_travel))];
       
+    }
+  },
+  filters: {
+    directionString: function (value) {
+      let string;
+      switch (value) {
+        case 'S':
+          string = 'South';
+          break;
+        case 'N':
+          string = 'North';
+          break;
+        case 'E':
+          string = 'East';
+          break;
+        case 'W':
+          string = 'West';
+          break;
+        case 'C':
+          string = 'Combined';
+          break;
+        default:
+          string = 'Unknown';
+      }
+      return string;
     }
   }
 };

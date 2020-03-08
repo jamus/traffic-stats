@@ -41,7 +41,8 @@ const CountPointCountsData = {
       return {
         label: label,
         data: data,
-        backgroundColor: getDataSetItemColour(label),
+        borderColor: getDataSetItemColour(label),
+        fill: false,
         borderWidth: 0
       }
     }
